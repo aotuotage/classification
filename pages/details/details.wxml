@@ -1,0 +1,30 @@
+<!--pages/details/details.wxml-->
+<view class='details'>
+  <view class='recyclablebg'>
+    <view class="recyclable logobg" bindtap='recyclablebtn'></view>
+    <text class='garbage_text'>有害垃圾</text>
+  </view>
+  <view class='details_content'>
+    <text class='details_title'>
+        可回收垃圾:
+    </text>
+    <text class='details_text'>
+      指废纸张、废塑料、废玻璃制品、废金属、废织物等适合回收、可循环利用的生活废弃物。
+    </text>
+    <text class='describe_title'>
+      相关描述：
+    </text>
+    <text class='describe'>
+        手机：为可回收垃圾，但是内部电池为有害来及
+    </text>
+  </view>
+  <navigator url="/pages/index/index">
+    <view class='home'>
+      <view class='homeimg'></view>
+      <text class='hometext'>
+        首页
+      </text>
+    </view>
+  </navigator>
+</view>
+

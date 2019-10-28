@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <!-- 页面主显示区域 -->
+    <block wx:else>
+    <navigator url="/pages/seach/seach">
+    <view class="inputdiv">
+        <text class="intitle">保护环境,从垃圾分类开始</text>
+          <view bindtap="" class="search-input">
+            请输入垃圾名称
+            <view class='inicon inpos'></view>
+          </view>
+    </view>
+    </navigator>
+    <view class="garbagelogo">
+      <view class='recyclablebg'>
+          <view class="recyclable logobg" bindtap='recyclablebtn'></view>
+          <text class='garbage_text'>{{array[0]}}</text>
+      </view>
+      <view class='harmfulbg'>
+          <view class="harmful logobg" bindtap='harmfulbtn'></view>
+          <text class='garbage_text'>{{array[1]}}</text>
+      </view>
+      <view class='wetbg'>
+          <view class="wet logobg" bindtap='wetbtn'></view>
+          <text class='garbage_text'>{{array[2]}}</text>
+      </view>
+      <view class='drybg'>
+          <view class="dry logobg" bindtap='drybtn'></view>
+          <text class='garbage_text'>{{array[3]}}</text>
+      </view>
+    </view>
+    <view>{{restest}}</view>
+    <view class='sweep'>
+      <button class="sweepcodeone" bindtap="getQRCode">扫条码查询</button>
+      <view>{{ qRCodeMsg }}</view>
+    </view>
+    <view class='entry'>
+        <view class='portrait'>
+            <image class='portrait_img' src="{{userInfo.avatarUrl}}"></image>
+            <text class='portrait_text'>您已经为垃圾分类贡献8条词条</text>
+        </view>
+        <text class='contribution '>
+          贡献词条：
+        </text>
+        <input class="garbageName" placeholder='垃圾名称'></input>
+        <picker bindchange="bindPickerChange" class="garbagety" value="{{index}}" range="{{array}}">
+          <view class="picker" wx:if="{{pickershow}}">
+            选择分类
+          </view>
+          <view class="picker" wx:else>
+            {{array[index]}}
+          </view>
+        </picker>
+        <input class='garbageResult' placeholder='详细描述'></input>
+        <button class='subbtn' bindtap='submission'>提交</button>
+    </view>
+    <view class="cooperation">
+      合作QQ:826931037
+    </view>
+    </block>
+  </view>
+  <view class='sharebg'>
+    <button class='share' open-type="share" bindtap='sharebtn'>
+    </button>
+    <text>分享</text> 
+  </view>
+  <view class='mask' wx:if="{{mask}}" bindtap='maskbtn'>
+    <view class='masktext' id="maskcontent">
+      <text class='text1' id="maskcontent2">{{texttitle}}</text>
+      <text class='text2' id="maskcontent3">
+        {{textcontent}}
+      </text>
+      <text class='rement' id="maskcontent4">
+      投放要求：{{textnotes}}
+      </text>
+      <text class='close' bindtap='close'></text>
+    </view>
+  </view>
+</view>

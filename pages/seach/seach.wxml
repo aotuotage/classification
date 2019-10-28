@@ -1,0 +1,33 @@
+<!--pages/seach/seach.wxml-->
+<view class='seachpages'>
+  <view class='seachbg'>
+    <view class='seach'>
+      <input class='seachin' bindinput="bindKeyInput" placeholder='请输入垃圾名称' class="search-input"></input>
+      <text class='seachtext' bindtap='search'>搜索</text>
+      <view class='inicon inpos'></view>
+    </view>
+  </view>
+  <view class='list'>
+    <view wx:for="{{list}}" wx:key="idx" wx:for-item="item">
+      <navigator url="/pages/details/details?classid={{item.classid}}">
+        <view class='list_pro'>
+          <text class='list_title'>{{item.name}}</text>
+          <text class='recovery'>{{item.classification}}</text>
+          <icon class='list_icon inicon'></icon>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='errtext' wx:if="{{errshow}}">
+    {{errtext}}
+  </view>
+  <navigator url="/pages/index/index">
+    <view class='home'>
+      <view class='homeimg'></view>
+      <text class='hometext'>
+        首页
+      </text>
+    </view>
+  </navigator>
+</view>
+
